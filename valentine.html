@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Supreetha ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --pink1: #ff4e78;
+  --pink2: #ff9a9e;
+  --glass: rgba(255,255,255,0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, var(--pink1), var(--pink2));
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  padding: 28px;
+  border-radius: 24px;
+  width: 90%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  animation: fadeIn 1s ease;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 24px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.yes {
+  background: white;
+  color: var(--pink1);
+}
+
+.yes:hover {
+  transform: scale(1.08);
+}
+
+.no {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  position: relative;
+}
+
+footer {
+  margin-top: 18px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 18px;
+  animation: floatUp linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="page1">
+  <h1>Hey Supreetha 💕</h1>
+  <p>
+    I tried something special for the first time…  
+    and of course, it had to be for you 😌✨
+  </p>
+  <p>
+    So tell me honestly…  
+    will you be my Valentine? 💖
+  </p>
+
+  <div class="buttons">
+    <button class="yes" onclick="goForever()">Yes 💝</button>
+    <button class="no" id="noBtn">No 🙈</button>
+  </div>
+
+  <footer>— From <b>Harshitha</b> 💌</footer>
+</div>
+
+<div class="card hidden" id="page2">
+  <h1>Supreetha 💖</h1>
+  <p style="font-size:14px;opacity:0.9;">Since 03 • 07 • 2015 ✨</p>
+
+  <p>
+    This journey…  
+    I never want it without you 💫
+  </p>
+
+  <p>
+    Not just today,  
+    not just tomorrow…  
+    but forever 💍
+  </p>
+
+  <h2>Forever Us 💕</h2>
+
+  <footer>— Forever yours, <b>Harshitha</b> 💌</footer>
+</div>
+
+<script>
+function goForever() {
+  document.getElementById("page1").classList.add("hidden");
+  document.getElementById("page2").classList.remove("hidden");
+  startHearts();
+}
+
+const noBtn = document.getElementById("noBtn");
+
+function moveNoButton() {
+  const x = Math.random() * 240 - 120;
+  const y = Math.random() * 240 - 120;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+noBtn.addEventListener("mouseenter", moveNoButton);
+noBtn.addEventListener("click", moveNoButton);
+noBtn.addEventListener("touchstart", moveNoButton);
+
+function startHearts() {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 4 + Math.random() * 4 + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 8000);
+  }, 300);
+}
+</script>
+
+</body>
+</html>
